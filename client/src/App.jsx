@@ -1,27 +1,31 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import LogIn from "./components/LogIn";
-import SignUp from "./components/SignUp";
+import React, { useEffect, useState } from "react";
+import Auth from "./components/auth/Auth";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
-import { useNavigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Profile from "./pages/Profile";
+import AllEvents from "./pages/AllEvents";
+import EventDetail from "./pages/EventDetail";
 
 const App = () => {
+  const storedToken = localStorage.getItem("authToken");
+  const [token, setToken] = useState(storedToken);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
-    if (!storedToken) {
-      navigate("/signup");
-    }
-    localStorage.clear();
-  }, []);
+  useEffect(() => {}, [token, navigate]);
+
   return (
-    <div className="app">
+    <div className="app relative">
+      <Navbar />
       <Routes>
+        <Route path="/profile/*" element={<Profile />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/events" element={<AllEvents />} />
+        <Route path="/event/yes" element={<EventDetail />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

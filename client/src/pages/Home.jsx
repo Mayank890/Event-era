@@ -1,10 +1,15 @@
 import React from "react";
-import Welcome from "../components/Welcome";
+// import Banner from "../components/Banner";
+import Categories from "../components/Categories";
+import EventsSection from "../components/EventsSection";
+import Banner from "../components/Banner";
 
 const Home = () => {
   return (
     <div>
-      <Welcome />
+      <Banner />
+      <Categories />
+      <EventsSection />
     </div>
   );
 };
