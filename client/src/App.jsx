@@ -19,9 +19,9 @@ const App = () => {
     <div className="app relative">
       <Navbar />
       <Routes>
-        <Route path="/profile/*" element={<Profile />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Home />} />
+        <Route path="/profile/*" element={<Profile />} />
         <Route path="/events" element={<AllEvents />} />
         <Route path="/event/yes" element={<EventDetail />} />
       </Routes>

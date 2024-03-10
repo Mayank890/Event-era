@@ -11,7 +11,7 @@ const EventItem = ({ event }) => {
         <img src={event.img} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="p-2">
-        <h2 className="text-2xl font-poppins text-gray-800 font-semibold">
+        <h2 className="text-2xl font-poppins text-gray-800 font-easy">
           {event.title}
         </h2>
         <ul className="text-base mt-5 text-gray-700">
