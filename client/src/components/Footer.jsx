@@ -27,17 +27,17 @@ const Footer = () => {
           </p>
         </div>
 
-        <div class="max-w-screen-xl px-4 mx-auto mt-4">
-          <div class="pt-8 flex max-w-xs mx-auto items-center justify-between">
+        <div className="max-w-screen-xl px-4 mx-auto mt-4">
+          <div className="pt-8 flex max-w-xs mx-auto items-center justify-between">
             <a
               href="#"
-              class=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+              className=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
             >
               <svg
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+                className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
                 viewBox="0 0 1792 1792"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -46,13 +46,13 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              class=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+              className=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
             >
               <svg
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+                className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
                 viewBox="0 0 1792 1792"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -61,7 +61,7 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              class=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+              className=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              class=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+              className=" transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,25 +90,25 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          {/* <div class="text-center pt-10 sm:pt-12 font-light flex items-center justify-center">
-          <form class="flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
-            <div class=" relative ">
+          {/* <div className="text-center pt-10 sm:pt-12 font-light flex items-center justify-center">
+          <form className="flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
+            <div className=" relative ">
               <input
                 type="text"
                 id='"form-subscribe-Subscribe'
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 placeholder="Email"
               />
             </div>
             <button
-              class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-primary-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+              className="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-primary-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
               type="submit"
             >
               Subscribe
             </button>
           </form>
         </div> */}
-          <div class="text-center text-primary-500 dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
+          <div className="text-center text-primary-500 dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
             Copyright 2024. All rights reserved
           </div>
         </div>

@@ -24,21 +24,21 @@ const Banner = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const previSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
+  // const previSlide = () => {
+  //   const isFirstSlide = currentIndex === 0;
+  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  // };
 
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
+  // const nextSlide = () => {
+  //   const isLastSlide = currentIndex === slides.length - 1;
+  //   const newIndex = isLastSlide ? 0 : currentIndex + 1;
+  //   setCurrentIndex(newIndex);
+  // };
   return (
-    <div className="h-96 w-full m-auto relative group overflow-hidden">
+    <div className="h-96 w-full m-auto relative group overflow-hidden container">
       <div
-        className="w-full h-full flex transition-transform duration-1000"
+        className="w-full h-full flex transition-transform duration-[1500ms]"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, slideIndex) => (

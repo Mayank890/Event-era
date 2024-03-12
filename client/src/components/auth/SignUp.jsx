@@ -13,7 +13,7 @@ const SignUp = ({ handleAccount }) => {
 
   const [credentials, setCredentials] = useState({
     userName: "",
-    mobileNumber: "",
+    email: "",
     password: "",
     cpassword: "",
   });
@@ -32,23 +32,27 @@ const SignUp = ({ handleAccount }) => {
       console.error("Password and Confirm Password do not match.");
       return;
     }
+    localStorage.setItem("email", credentials.email);
     try {
       axios
-        .post("/api/v1/signup", {
-          userName: credentials.userName,
-          email: credentials.email,
-          password: credentials.password,
+        .post("/auth/register", {
+          user_name: credentials.userName,
+          user_email: credentials.email,
+          user_password: credentials.password,
+          isuserVendor: false,
         })
         .then((response) => {
-          const jwtToken = response.data.token;
-          localStorage.setItem("authToken", jwtToken);
-          const token = localStorage.getItem("authToken");
-          console.log(jwtToken);
-          console.log("successfully assigned token", token);
+          // const jwtToken = response.data.token;
+          // localStorage.setItem("authToken", jwtToken);
+
+          // const token = localStorage.getItem("authToken");
+          // console.log(jwtToken);
+          // console.log("successfully assigned token", token);
           // navigate("/");
+          console.log(response);
           navigate(location.state?.from || "/");
 
-          window.scrollTo(0, 0);
+          // window.scrollTo(0, 0);
 
           // window.history.back();
         })

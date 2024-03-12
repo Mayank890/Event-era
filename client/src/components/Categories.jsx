@@ -9,36 +9,36 @@ const Categories = () => {
   const [categories, setCategories] = useState([
     {
       icon: <FaMusic />,
-      name: "Music",
+      name: "music",
     },
     {
       icon: <FaTheaterMasks />,
-      name: "Theater",
+      name: "theater",
     },
     {
       icon: <FaPersonHarassing />,
-      name: "Dance",
+      name: "dance",
     },
     {
       icon: <LuPartyPopper />,
-      name: "Parties",
+      name: "parties",
     },
     {
       icon: <MdFestival />,
-      name: "Festivals",
+      name: "festivals",
     },
     {
       icon: <MdSportsMartialArts />,
-      name: "Sports",
+      name: "sports",
     },
     {
       icon: <FaLaptop />,
-      name: "Tech",
+      name: "tech",
     },
   ]);
 
   return (
-    <section className="px-8 mt-8">
+    <section className="px-8 mt-8 container mx-auto">
       <h2 className="text-2xl font-bold my-4 ">Explore Categories</h2>
       <div className="flex  md:justify-around rounded-xl md:px-32 py-3 overflow-auto no-scrollbar mt-8">
         {categories.map((category, index) => (
@@ -51,8 +51,8 @@ const Categories = () => {
 
 const CategoryItem = ({ icon, name }) => {
   return (
-    <a
-      href={`/events?category=${name}`}
+    <Link
+      to={`/events?category=${name}`}
       className="flex flex-col items-center group my-3"
     >
       <div className="flex justify-center items-center mx-6 sm:mx-8 w-24 h-24 bg-primary-100/30 rounded-full text-3xl text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition cursor-pointer">
@@ -61,7 +61,7 @@ const CategoryItem = ({ icon, name }) => {
       <h3 className="text-base text-grey-800 capitalize mt-2 font-poppins font-normal my-3">
         {name}
       </h3>
-    </a>
+    </Link>
   );
 };
 

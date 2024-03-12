@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "../../services/api";
+// import axios from "../../services/api";
+import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaEyeSlash, FaUser } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
@@ -26,16 +27,19 @@ const LogIn = ({ handleAccount, haveAccount }) => {
     e.preventDefault();
     try {
       axios
-        .post("/api/v1/login", {
-          email: credentials.email,
+        .post("http://localhost:5000/api/auth/ulogin", {
+          user_email: credentials.email,
           password: credentials.password,
         })
         .then((response) => {
-          const jwtToken = response.data.token;
-          localStorage.setItem("authToken", jwtToken);
-          const token = localStorage.getItem("authToken");
-          console.log(jwtToken);
-          console.log("successfully assigned token", token);
+          // const jwtToken = response.data.token;
+          // localStorage.setItem("authToken", jwtToken);
+          // const token = localStorage.getItem("authToken");
+          // console.log(jwtToken);
+          // console.log("successfully assigned token", token);
+          console.log(response);
+
+          localStorage.setItem("email", credentials.email);
           navigate(location.state?.from || "/");
           // window.history.back();
           window.scrollTo(0, 0);
