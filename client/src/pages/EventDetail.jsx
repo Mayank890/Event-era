@@ -32,7 +32,7 @@ export default function EventDetail() {
   };
 
   return (
-    <div className="mx-8 font-poppins relative">
+    <div className="mx-8  relative">
       <div className="mb-8">
         <div
           href="google.com"

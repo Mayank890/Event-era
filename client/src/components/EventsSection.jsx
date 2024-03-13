@@ -201,7 +201,7 @@ const EventsSection = () => {
           </li>
         </ul>
       </header>
-      <div className="flex w-full gap-x-3 gap-y-8 flex-wrap justify-center no-scrollbar mt-8">
+      <div className="flex w-full  gap-y-8 flex-wrap justify-center no-scrollbar mt-8">
         {events === "popular"
           ? popularEvents.map((event, index) => (
               <EventItem key={index} event={event} />
@@ -211,7 +211,7 @@ const EventsSection = () => {
             ))}
       </div>
       <a
-        className="px-6 py-3 border-2 text-primary-500 border-primary-500 w-max mx-auto mt-9 rounded-3xl font-poppins hover:bg-primary-500 hover:text-white transition"
+        className="px-6 py-3 border-2 text-primary-500 border-primary-500 w-max mx-auto mt-9 rounded-3xl  hover:bg-primary-500 hover:text-white transition"
         href="/events"
       >
         View All Events

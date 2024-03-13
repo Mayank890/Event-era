@@ -27,7 +27,7 @@ const LogIn = ({ handleAccount, haveAccount }) => {
     e.preventDefault();
     try {
       axios
-        .post("http://localhost:5000/api/auth/ulogin", {
+        .post("http://localhost:5000/api/user/login/user", {
           user_email: credentials.email,
           password: credentials.password,
         })

@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 const withMT = require("@material-tailwind/react/utils/withMT");
+
+console.log(defaultTheme);
 
 export default withMT({
   mode: "jit",
@@ -104,9 +106,8 @@ export default withMT({
         white: "#ffffff",
       },
       fontFamily: {
-        plusJakrta: ["Plus Jakarta Sans"],
-        bebasNeue: ["Bebas Neue"],
-        poppins: ["Poppins"],
+        display: ["Poppins", ...defaultTheme.fontFamily.sans],
+        body: ["Poppins", ...defaultTheme.fontFamily.sans],
       },
     },
   },

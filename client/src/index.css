@@ -24,7 +24,7 @@ body {
 }
 
 #auth-section {
-  @apply flex flex-col items-center m-auto  relative font-poppins;
+  @apply flex flex-col items-center m-auto  relative;
 }
 
 #auth-form {

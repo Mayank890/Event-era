@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const EventItem = ({ event }) => {
   const url = "https://api.theeventera.live/";
   return (
-    <div className="p-1.5 w-80 bg-white/100 font-poppins rounded-lg  drop-shadow-xl  transition ">
+    <div className="p-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white/100  rounded-lg  drop-shadow-xl  transition ">
       <div className=" h-[308px] rounded-sm overflow-hidden">
         <img
           src={`${url}${event.poster_img}`}
@@ -17,7 +17,7 @@ const EventItem = ({ event }) => {
         />
       </div>
       <div className="p-2">
-        <h2 className="text-2xl text-ellipsis font-poppins text-gray-800 font-easy">
+        <h2 className="text-2xl text-ellipsis  text-gray-800 font-easy">
           {event.event_name}
         </h2>
         <ul className="text-base mt-5 text-gray-700">
@@ -31,7 +31,7 @@ const EventItem = ({ event }) => {
           </li>
         </ul>
         <div className="flex items-center mt-3  justify-between mb-5 mx-3">
-          <h3 className="text-lg text-gray-800 flex items-center font-poppins font-medium">
+          <h3 className="text-lg text-gray-800 flex items-center  font-medium">
             <MdOutlineCurrencyRupee /> {event.price}
           </h3>
           <Link

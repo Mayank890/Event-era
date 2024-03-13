@@ -58,7 +58,7 @@ const CategoryItem = ({ icon, name }) => {
       <div className="flex justify-center items-center mx-6 sm:mx-8 w-24 h-24 bg-primary-100/30 rounded-full text-3xl text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition cursor-pointer">
         {icon}
       </div>
-      <h3 className="text-base text-grey-800 capitalize mt-2 font-poppins font-normal my-3">
+      <h3 className="text-base text-grey-800 capitalize mt-2  font-normal my-3">
         {name}
       </h3>
     </Link>

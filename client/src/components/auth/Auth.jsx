@@ -11,10 +11,10 @@ const Auth = () => {
   };
 
   return (
-    <div className="w-full  h-[calc(100vh-109px)] font-poppins">
+    <div className="w-full  h-[calc(100vh-109px)] ">
       <AuthBG />
       <div className="w-full max-w-[423px] border-[1px] border-grey-300 mx-auto mt-28 p-3 rounded-xl relative">
-        <h1 className="text-2xl font-medium mt-10 text-center text-grey-600 font-poppins">
+        <h1 className="text-2xl font-medium mt-10 text-center text-grey-600 ">
           {haveAccount ? "Login" : "Sign Up"}
         </h1>
         {!haveAccount ? (

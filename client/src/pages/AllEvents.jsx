@@ -231,7 +231,7 @@ const AllEvents = () => {
     window.history.back();
   };
   return (
-    <section className=" mx-auto px-8 mt-6">
+    <section className=" mx-auto px-8 mt-6 container ">
       <div className="flex items-center mb-6">
         <FaChevronLeft
           className="h-4 w-8 mr-2 text-gray-500 cursor-pointer"
