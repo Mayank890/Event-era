@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="hidden md:flex md:items-center  font-normal">
           <button className="group border  px-7 py-3 text-primary-500 flex items-center border-primary-400 text-base rounded-3xl mr-4 transition">
             <FaPlus className="group-hover:text-primary-500 mr-3 " />
-            Create Event
+            Create
           </button>
           {!email ? (
             <button
