@@ -25,15 +25,13 @@ const Poll = () => {
     const updatedSelectedOptions = [...selectedOptions];
     updatedSelectedOptions[currentPoll] = option;
     setSelectedOptions(updatedSelectedOptions);
-
-    // Submit the selected option directly when the user clicks on it
-    submitOption(option);
+    setSubmittedOption(option); // Set the submitted option when an option is selected
   }
 
   const submitOption = async (selectedOption) => {
     const pollId = polls[currentPoll]._id;
     console.log("Selected Option:", selectedOption);
-    
+
   //to store the selected option in the backend
   //   try {
   //     const response = await axios.post(`https://api.theeventera.live/api/polls/vote/${pollId}`, {
