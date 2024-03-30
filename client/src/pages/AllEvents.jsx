@@ -242,15 +242,15 @@ const AllEvents = () => {
           All Events
         </Link>
       </div>
-      <div className="mb-4 md:mb-0">
+      <div className="mb-4 md:mb-0 w-full overflow-x-auto flex items-center no-scrollbar">
         <Link
           to={`/events`}
-          className={`mr-4 md:mr-0 md:ml-4 py-2 px-6 rounded-full border hover:bg-primary-500 hover:text-white transition ${
+          className={`  py-2 px-6  rounded-full   border hover:bg-primary-500 hover:text-white transition ${
             location.pathname === "/events" && !searchParams.get("category")
               ? "bg-primary-500 text-white"
               : "bg-white text-primary-500"
           }`}
-          // onClick={() => setSelectedCategory(category)}
+          style={{ whiteSpace: "nowrap" }} // Add nowrap style here
         >
           All Events
         </Link>
@@ -271,7 +271,7 @@ const AllEvents = () => {
         ))}
       </div>
 
-      <div className="flex w-full gap-x-3 gap-y-8 flex-wrap  mt-6">
+      <div className="flex w-full flex-1 gap-y-8 flex-wrap  mt-6">
         {allEvents.map((event, index) => (
           <EventItem key={index} event={event} />
         ))}

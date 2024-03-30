@@ -6,60 +6,66 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 
 export default function Profile() {
   const navigate = useNavigate();
-  // const storedToken = localStorage.getItem("authToken");
   const storedEmail = localStorage.getItem("email");
-  const [token, setToken] = useState(storedToken);
+  const id = localStorage.getItem("userId");
+  const [token, setToken] = useState(storedEmail);
 
   useEffect(() => {
     console.log("Token in Navbar:", token);
-    // ... rest of the code
     return () => {
-      // Cleanup code (optional)
-      // This will run when the component unmounts
       console.log("Navbar component is unmounting");
     };
   }, [token]);
+
+  const logout = () => {
+    localStorage.clear();
+    setToken("");
+    navigate("/");
+  };
 
   return (
     <div className="flex h-[calc(100vh-106px)]">
       <aside className="w-60 border-r-2 flex flex-col items-center relative">
         <div
           className="flex items-center mt-3 cursor-pointer"
-          onClick={() => window.history.back()}
+          onClick={() => navigate(-1)}
         >
           <MdKeyboardArrowLeft size={25} />
           <h3 className="text-xl">User Profile</h3>
         </div>
         <ul className="mt-4">
-          <li className="py-3  hover:bg-primary-500 rounded-3xl">
-            <Link className="py-3 px-6" to="/profile">
+          <li className="py-3 rounded-3xl">
+            <Link
+              className={`py-3 px-6 hover:bg-primary-500 rounded-3xl ${
+                window.location.pathname === `/profile/${id}`
+                  ? "bg-primary-500 rounded-3xl"
+                  : ""
+              }`}
+              to={`/profile/${id}`}
+            >
               Profile
             </Link>
           </li>
-          <li className="py-3  hover:bg-primary-500 rounded-3xl">
-            <Link className="py-3 px-6" to="/profile/attendedevents">
+          <li className="py-3">
+            <Link
+              className={`py-3 px-6 hover:bg-primary-500 rounded-3xl ${
+                window.location.pathname === "/profile/attendedevents"
+                  ? "bg-primary-500 rounded-3xl"
+                  : ""
+              }`}
+              to="/profile/attendedevents"
+            >
               Attended Events
             </Link>
           </li>
         </ul>
-        <button
-          className="absolute left-10 bottom-10"
-          onClick={() => {
-            localStorage.clear();
-            setToken((prevToken) => {
-              console.log("Previous Token:", prevToken);
-              return "";
-            });
-            navigate("/");
-            console.log("Token set to empty string", token);
-          }}
-        >
+        <button className="absolute left-10 bottom-10" onClick={logout}>
           Logout
         </button>
       </aside>
       <div className="w-full h-screen">
         <Routes>
-          <Route path="" element={<UserProfile />} />
+          <Route path="/:id" element={<UserProfile />} />
           <Route path="attendedevents" element={<AttendedEvents />} />
         </Routes>
       </div>

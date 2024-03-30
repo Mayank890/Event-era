@@ -40,7 +40,7 @@ const Categories = () => {
   return (
     <section className="px-8 mt-8 container mx-auto">
       <h2 className="text-2xl font-bold my-4 ">Explore Categories</h2>
-      <div className="flex  md:justify-around rounded-xl md:px-32 py-3 overflow-auto no-scrollbar mt-8">
+      <div className="flex rounded-xl md:px-32 py-3 overflow-auto no-scrollbar mt-8">
         {categories.map((category, index) => (
           <CategoryItem key={index} name={category.name} icon={category.icon} />
         ))}

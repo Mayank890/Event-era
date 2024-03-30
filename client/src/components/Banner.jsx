@@ -49,15 +49,15 @@ const Banner = () => {
               width: "100%",
               flex: "0 0 auto",
             }}
-            className="w-full h-full bg-center bg-cover rounded-b-3xl"
+            className="w-full h-full bg-center bg-cover "
           ></div>
         ))}
       </div>
       <div className="flex absolute bottom-4 text-white inset-x-0 justify-center py-1">
         {slides.map((slide, slideIndex) => (
-          <div key={slideIndex} className="text-2xl cursor-pointer ">
+          <div key={slideIndex} className="text-3xl cursor-pointer ">
             <RxDotFilled
-              size={30}
+              // size={30}
               onClick={() => setCurrentIndex(slideIndex)}
               className={`${
                 currentIndex === slideIndex
@@ -72,12 +72,3 @@ const Banner = () => {
   );
 };
 export default Banner;
-
-{
-  /* <div className="hidden group-hover:block absolute top-[50%] -translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-  <BsChevronCompactLeft onClick={previSlide} size={30} />
-</div>
-<div className="hidden group-hover:block absolute top-[50%] -translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-  <BsChevronCompactRight onClick={nextSlide} size={30} />
-</div> */
-}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-// import axios from "../../services/api";
-import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import axios from "../../services/api";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaEyeSlash, FaUser } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { PiLockFill } from "react-icons/pi";
@@ -27,21 +26,17 @@ const LogIn = ({ handleAccount, haveAccount }) => {
     e.preventDefault();
     try {
       axios
-        .post("http://localhost:5000/api/user/login/user", {
+        .post("/auth/login/user", {
           user_email: credentials.email,
-          password: credentials.password,
+          user_password: credentials.password,
         })
         .then((response) => {
-          // const jwtToken = response.data.token;
-          // localStorage.setItem("authToken", jwtToken);
-          // const token = localStorage.getItem("authToken");
-          // console.log(jwtToken);
-          // console.log("successfully assigned token", token);
           console.log(response);
 
           localStorage.setItem("email", credentials.email);
+          localStorage.setItem("name", response.data.user_name);
+          localStorage.setItem("userId", response.data.userId);
           navigate(location.state?.from || "/");
-          // window.history.back();
           window.scrollTo(0, 0);
         });
     } catch (err) {
@@ -50,51 +45,56 @@ const LogIn = ({ handleAccount, haveAccount }) => {
   };
 
   return (
-    <div id="auth-section">
-      <form id="auth-form" onSubmit={(e) => handleFormSubmit(e)}>
-        <div>
-          <MdEmail />
-          <input
-            type="email"
-            name="email"
-            value={credentials.email}
-            onChange={(e) => handleFormInput(e)}
-            placeholder="Email"
-            required
-          />
-        </div>
-        <div>
-          <div className="flex items-center">
-            <PiLockFill />
+    <div className="w-full max-w-[423px] border-[1px] border-grey-300 mx-auto mt-28 p-3 rounded-xl relative">
+      <h1 className="text-2xl font-medium mt-10 text-center text-grey-600 ">
+        Log in
+      </h1>
+      <div id="auth-section">
+        <form id="auth-form" onSubmit={(e) => handleFormSubmit(e)}>
+          <div>
+            <MdEmail />
             <input
-              type="password"
-              name="password"
-              value={credentials.password}
+              type="email"
+              name="email"
+              value={credentials.email}
               onChange={(e) => handleFormInput(e)}
-              placeholder="Password"
+              placeholder="Email"
               required
             />
           </div>
-          <FaEyeSlash />
-        </div>
+          <div>
+            <div className="flex items-center">
+              <PiLockFill />
+              <input
+                type="password"
+                name="password"
+                value={credentials.password}
+                onChange={(e) => handleFormInput(e)}
+                placeholder="Password"
+                required
+              />
+            </div>
+            <FaEyeSlash />
+          </div>
 
-        <p className="w-full text-end text-sm font-normal text-primary-500">
-          Forgot Password?
-        </p>
-        <button className="submit-button" type="submit">
-          Login
-        </button>
-        <p className="text-sm font-normal">
-          Don't have an account?{" "}
-          <span
-            className="text-primary-500 cursor-pointer"
-            onClick={() => handleAccount(false)}
+          <Link
+            to={"/forgot-password"}
+            className="w-full text-end text-sm font-normal text-primary-500"
           >
-            {" "}
-            Sign Up{" "}
-          </span>
-        </p>
-      </form>
+            Forgot Password?
+          </Link>
+          <button className="submit-button" type="submit">
+            Login
+          </button>
+          <p className="text-sm font-normal">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-primary-500 cursor-pointer">
+              {" "}
+              Sign Up{" "}
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
