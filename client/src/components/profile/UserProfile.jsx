@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import axios from "../services/api";
+import axios from "../../services/api";
 const UserProfile = () => {
   const [profile, setProfile] = useState([]);
   const [editProfile, setEditProfile] = useState(false);

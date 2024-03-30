@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Link } from "react-router-dom";
-import AttendedEvents from "../components/AttendedEvents";
-import UserProfile from "../components/UserProfile";
+import AttendedEvents from "../../components/profile/AttendedEvents";
+import UserProfile from "../../components/profile/UserProfile";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 export default function Profile() {

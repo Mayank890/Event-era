@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "../services/api";
+import axios from "../../services/api";
 import { useNavigate } from "react-router-dom";
-import EventItem from "./EventItem";
+import EventItem from "../shared/EventItem";
 
 const EventsSection = () => {
   const [events, setEvents] = useState("popular");

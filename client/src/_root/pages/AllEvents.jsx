@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
-import axios from "../services/api";
+import axios from "../../services/api";
 
-import EventItem from "../components/EventItem";
+import EventItem from "../../components/shared/EventItem";
 import {
   Link,
   useSearchParams,

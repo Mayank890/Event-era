@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
-import Menu from "./Menu";
-import SearchPost from "./SearchPost";
+import Menu from "../Menu";
+import SearchPost from "../SearchPost";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <header className=" w-full h-auto   px-7 py-6 sm:items-center bg-primary-100/30 relative z-10">
-      <div className="flex justify-center sm:justify-between items-start sm:items-center container mx-auto">
-        <nav className="flex items-center sm:flex-row flex-col relative ">
+      <div className="flex relative  justify-center sm:justify-between items-center sm:items-center container mx-auto">
+        <nav className="flex gap-8 items-center justify-between sm:flex-row flex-col relative ">
           <a
             className="flex items-center sm:mb-0 mb-4 cursor-pointer w-56"
             onClick={() => navigate("/")}

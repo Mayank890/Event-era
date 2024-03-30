@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import axios from "axios";
 import moment from "moment/moment";
-import AddTicketForm from "../components/AddTicketForm";
+import AddTicketForm from "../../components/AddTicketForm";
 
 export default function EventDetail() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ export default function EventDetail() {
   const url = "https://api.theeventera.live/";
 
   useEffect(() => {
-      window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     try {
       axios
         .get("https://api.theeventera.live/api/events/details/" + id)
@@ -118,9 +118,7 @@ export default function EventDetail() {
       <div className="p-3 border rounded-2xl mb-8 ">
         <h5 className="2xl:text-2xl text-xl pb-6 font-semibold">Location</h5>
         <div className="block p-3 mx-auto">
-        <div
-      dangerouslySetInnerHTML={{ __html: event.google_map_url }}
-    />
+          <div dangerouslySetInnerHTML={{ __html: event.google_map_url }} />
         </div>
       </div>
       {tickets ? <AddTicketForm event={event} isBlock={isBlock} /> : ""}

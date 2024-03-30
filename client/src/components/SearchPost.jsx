@@ -33,7 +33,7 @@ const SearchPost = () => {
   }, [search]);
 
   return (
-    <div className="flex flex-col w-full mx-auto relative">
+    <div className="flex flex-col w-96 md:w-72 lg:w-96 mx-auto relative">
       <div className="flex w-full h-12 border border-grey-400 relative px-4 py-2 rounded-3xl items-center focus-within:border-black">
         <CiSearch size={17.5} className="text-grey-400" />
         <input

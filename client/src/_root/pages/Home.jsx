@@ -1,9 +1,9 @@
 import React from "react";
 // import Banner from "../components/Banner";
-import Categories from "../components/Categories";
-import EventsSection from "../components/EventsSection";
-import Banner from "../components/Banner";
-import Testimonials from "../components/Testimonials";
+import Categories from "../../components/home/Categories";
+import EventsSection from "../../components/home/EventsSection";
+import Banner from "../../components/home/Banner";
+import Testimonials from "../../components/home/Testimonials";
 
 const Home = () => {
   return (

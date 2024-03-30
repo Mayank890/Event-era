@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/AuthBG.css";
+import "@/styles/AuthBG.css";
 
 const AuthBG = () => {
   return (
