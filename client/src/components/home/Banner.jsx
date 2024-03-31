@@ -39,12 +39,13 @@ const Banner = () => {
               width: "100%",
               flex: "0 0 auto",
             }}
-            className="w-full h-full bg-center bg-cover rounded-b-3xl"
+            className="w-full h-full bg-center bg-cover "
           ></div>
         ))}
       </div>
       <div className="flex absolute bottom-4 text-white inset-x-0 justify-center py-1">
         {slides.map((slide, slideIndex) => (
+<<<<<<< HEAD:client/src/components/Banner.jsx
           <div
             key={slideIndex}
             onClick={() => setCurrentIndex(slideIndex)}
@@ -52,10 +53,26 @@ const Banner = () => {
               currentIndex === slideIndex ? "bg-primary-500" : "bg-white/50"
             }`}
           ></div>
+=======
+          <div key={slideIndex} className="text-3xl cursor-pointer ">
+            <RxDotFilled
+              // size={30}
+              onClick={() => setCurrentIndex(slideIndex)}
+              className={`${
+                currentIndex === slideIndex
+                  ? "text-primary-500 transform-1"
+                  : "text-white/50"
+              }`}
+            />
+          </div>
+>>>>>>> f149a3eaf73a802c0d4605c914eae3a3a327f76a:client/src/components/home/Banner.jsx
         ))}
       </div>
     </div>
   );
 };
+<<<<<<< HEAD:client/src/components/Banner.jsx
 
+=======
+>>>>>>> f149a3eaf73a802c0d4605c914eae3a3a327f76a:client/src/components/home/Banner.jsx
 export default Banner;

@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import moment from "moment/moment";
+import axios from "../services/api";
 
 const AddTicketForm = ({ isBlock, event }) => {
-  // const event = {
-  //   name: "Music Live Event in Ahmedabad",
-  //   date: "3rd December",
-  //   time: "12:00 PM",
-  //   location: "Ahmedabad",
-  //   ticketPrice: 10, // Assuming ticket price is $10
-  // };
-
   const [ticketCount, setTicketCount] = useState(1);
 
   const handleIncrement = () => {
@@ -26,6 +19,44 @@ const AddTicketForm = ({ isBlock, event }) => {
   const subTotal = ticketCount * event.price;
   const gst = subTotal * 0.1;
   const totalAmount = subTotal + gst;
+
+  const handleTicketBooking = () => {
+    const email = localStorage.getItem("email");
+    console.log(event._id, email, totalAmount, ticketCount);
+
+    function generateRandomPaymentId() {
+      // Generate a random string
+      const randomString = Math.random().toString(36).substring(2, 10);
+
+      // Get current timestamp
+      const timestamp = Date.now();
+
+      // Combine timestamp and random string to create the payment ID
+      const paymentId = `PAY${timestamp}${randomString}`;
+
+      return paymentId;
+    }
+
+    const requestBody = {
+      event_id: event._id,
+      user_email: email,
+      total_amount: totalAmount, // Example amount
+      no_seats: ticketCount, // Example number of seats
+      platform_charges: 10, // Example platform charges
+      payment_id: generateRandomPaymentId(),
+    };
+
+    axios
+      .post("/bookings/book-event", requestBody)
+      .then((response) => {
+        console.log("Response:", response.data);
+        isBlock(false);
+        alert(`your ${ticketCount} tickets has booked`);
+      })
+      .catch((error) => {
+        console.error("Error:", error.response.data);
+      });
+  };
 
   return (
     <div className="fixed bg-black/80 z-50 inset-x-0 inset-y-0 w-full  flex justify-center items-center">
@@ -106,7 +137,10 @@ const AddTicketForm = ({ isBlock, event }) => {
             proceeding.
           </p>
         </div>
-        <button className="w-full py-2 rounded bg-red-500 text-white hover:bg-red-600">
+        <button
+          className="w-full py-2 rounded bg-red-500 text-white hover:bg-red-600"
+          onClick={() => handleTicketBooking()}
+        >
           Proceed to Pay
         </button>
       </div>
