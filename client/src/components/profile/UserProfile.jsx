@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import axios from "../../services/api";
+import axios from "@/services/api";
 const UserProfile = () => {
   const [profile, setProfile] = useState([]);
   const [editProfile, setEditProfile] = useState(false);
@@ -15,7 +15,6 @@ const UserProfile = () => {
       axios
         .get("/users/" + id)
         .then((response) => {
-          console.log(response.data);
           setProfile(response.data);
           setIsVendor(response.data.isuservendor);
         })
@@ -32,7 +31,6 @@ const UserProfile = () => {
         user_name: name,
         isuservendor: isVendor,
       });
-      console.log("it's updated", result);
       setEditProfile(false);
       // Optionally, you can show a success message or perform any other action after successful update
     } catch (error) {
@@ -40,8 +38,6 @@ const UserProfile = () => {
       // Optionally, you can show an error message or perform any other action upon error
     }
   };
-
-  console.log(isVendor);
 
   return (
     <div className="mt-20 ml-8 border-2  rounded-xl w-96  panel" id="Profile">
@@ -163,7 +159,7 @@ const UserProfile = () => {
               </span>
               <label
                 for="AcceptConditions"
-                class="relative h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-500"
+                className="relative h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-500"
               >
                 <input
                   type="checkbox"
@@ -173,7 +169,7 @@ const UserProfile = () => {
                   onChange={(e) => setIsVendor(!isVendor)}
                 />
 
-                <span class="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-white transition-all peer-checked:start-6"></span>
+                <span className="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-white transition-all peer-checked:start-6"></span>
               </label>
             </div>
             <div className="text-center mb-13  ">

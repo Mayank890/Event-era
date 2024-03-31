@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate, Link } from "react-router-dom";
-import AttendedEvents from "../../components/profile/AttendedEvents";
-import UserProfile from "../../components/profile/UserProfile";
+import { useEffect, useState } from "react";
+import {
+  Routes,
+  Route,
+  useNavigate,
+  Link,
+  useLocation,
+} from "react-router-dom";
+import AttendedEvents from "@/components/profile/AttendedEvents";
+import UserProfile from "@/components/profile/UserProfile";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 export default function Profile() {
@@ -10,12 +16,7 @@ export default function Profile() {
   const id = localStorage.getItem("userId");
   const [token, setToken] = useState(storedEmail);
 
-  useEffect(() => {
-    console.log("Token in Navbar:", token);
-    return () => {
-      console.log("Navbar component is unmounting");
-    };
-  }, [token]);
+  const location = useLocation();
 
   const logout = () => {
     localStorage.clear();
@@ -24,8 +25,8 @@ export default function Profile() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-106px)]">
-      <aside className="w-60 border-r-2 flex flex-col items-center relative">
+    <div className="flex h-[calc(100vh-106px)] container mx-auto">
+      <aside className=" min-w-48 border-r-2 md:flex flex-col items-center relative hidden ">
         <div
           className="flex items-center mt-3 cursor-pointer"
           onClick={() => navigate(-1)}
@@ -37,9 +38,8 @@ export default function Profile() {
           <li className="py-3 rounded-3xl">
             <Link
               className={`py-3 px-6 hover:bg-primary-500 rounded-3xl ${
-                window.location.pathname === `/profile/${id}`
-                  ? "bg-primary-500 rounded-3xl"
-                  : ""
+                location.pathname === `/profile/${id}` &&
+                "bg-primary-500 rounded-3xl"
               }`}
               to={`/profile/${id}`}
             >
@@ -49,9 +49,8 @@ export default function Profile() {
           <li className="py-3">
             <Link
               className={`py-3 px-6 hover:bg-primary-500 rounded-3xl ${
-                window.location.pathname === "/profile/attendedevents"
-                  ? "bg-primary-500 rounded-3xl"
-                  : ""
+                location.pathname === "/profile/attendedevents" &&
+                "bg-primary-500 rounded-3xl"
               }`}
               to="/profile/attendedevents"
             >

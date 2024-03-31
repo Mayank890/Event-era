@@ -11,21 +11,21 @@ import RootLayout from "./_root/RootLayout";
 
 const App = () => {
   return (
-    // <div className="app relative">
-    <Routes>
-      <Route element={<AuthLayout />}>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-      </Route>
-      <Route element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/profile/*" element={<Profile />} />
-        <Route path="/events" element={<AllEvents />} />
-        <Route path="/events/:id" element={<EventDetail />} />
-      </Route>
-    </Routes>
-    // </div>
+    <>
+      <Routes>
+        <Route element={<AuthLayout />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+        </Route>
+        <Route element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/profile/*" element={<Profile />} />
+          <Route path="/events" element={<AllEvents />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

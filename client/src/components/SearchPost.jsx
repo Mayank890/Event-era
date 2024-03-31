@@ -34,7 +34,7 @@ const SearchPost = () => {
 
   return (
     <div className="flex flex-col w-96 md:w-72 lg:w-96 mx-auto relative">
-      <div className="flex w-full h-12 border border-grey-400 relative px-4 py-2 rounded-3xl items-center focus-within:border-black">
+      <div className="flex z-10 w-full h-12 border border-grey-400  bg-primary-100/30 relative px-4 py-2 rounded-3xl items-center focus-within:border-black">
         <CiSearch size={17.5} className="text-grey-400" />
         <input
           type="text"
@@ -45,13 +45,14 @@ const SearchPost = () => {
         />
       </div>
       {searchResults.length > 0 && search.length > 0 && (
-        <div className="mt-4 absolute top-8 w-full">
+        <div className=" absolute z-0 top-0 w-full">
           {/* <h2 className="text-lg font-medium">Search Results:</h2> */}
-          <ul className="mt-2">
+          <ul className="mt-2 pt-12 bg-white">
             {searchResults.map((result) => (
               <li
                 key={result.id}
-                className="border bg-white border-gray-300 p-2 rounded-md hover:bg-gray-100 cursor-pointer"
+                className=" bg-white  p-2  hover:bg-gray-100 cursor-pointer"
+                onClick={() => setSearch("")}
               >
                 {/* Display search result content */}
                 <Link to={`/events/${result.id}`}>

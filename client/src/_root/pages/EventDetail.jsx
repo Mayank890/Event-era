@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import axios from "axios";
 import moment from "moment/moment";
-import AddTicketForm from "../../components/AddTicketForm";
+import AddTicketForm from "@/components/AddTicketForm";
 
 export default function EventDetail() {
   const { id } = useParams();
@@ -26,7 +26,7 @@ export default function EventDetail() {
     } catch (err) {
       console.log("Err signing up", err);
     }
-  }, []);
+  }, [id]);
 
   const isBlock = (value) => {
     setTickets(value);

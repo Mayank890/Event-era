@@ -1,5 +1,4 @@
 import moment from "moment/moment";
-import React from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
@@ -18,10 +17,10 @@ const EventItem = ({ event }) => {
           />
         </div>
         <div className="p-2   flex flex-col gap-4">
-          <h2 className="text-2xl sm:h-8 sm:h-12  md:h-20 text-ellipsis  text-gray-800 font-easy">
+          <h2 className="text-2xl h-12 text-ellipsis  text-gray-800 font-easy">
             {event.event_name}
           </h2>
-          <ul className="text-base  text-gray-700">
+          <ul className="text-base mt-4  text-gray-700">
             <li className="flex gap-1 items-center">
               <CiCalendarDate size={20} />{" "}
               <span>{moment(event.event_date).format("MMMM DD, YYYY")}</span> |{" "}

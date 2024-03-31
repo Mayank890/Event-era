@@ -38,7 +38,7 @@ const testimonialsData = [
 
 const Testimonials = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       {/* Testimonials Section */}
       <div className=" flex flex-col md:flex-row flex-wrap justify-center items-center mt-12">
         {testimonialsData.map((testimonial, index) => (

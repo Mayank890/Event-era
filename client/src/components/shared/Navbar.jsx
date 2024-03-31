@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
-import Menu from "../Menu";
 import SearchPost from "../SearchPost";
+import { RiMenu3Line } from "react-icons/ri";
+import RightSlideOver from "./RightSlideOver";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [profile, setProfile] = useState({});
+  const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const email = localStorage.getItem("email");
-  const name = localStorage.getItem("name");
   const id = localStorage.getItem("userId");
 
   return (
@@ -60,7 +60,14 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <Menu />
+
+        <div className="absolute right-0 cursor-pointer  inline-block md:hidden text-left">
+          <RiMenu3Line
+            className=" text-3xl cursor-pointer font-extraBold text-black  right-5"
+            onClick={() => setOpen(true)}
+          />
+        </div>
+        <RightSlideOver open={open} setOpen={setOpen} />
       </div>
     </header>
   );
