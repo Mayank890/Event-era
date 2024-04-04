@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import moment from "moment/moment";
 import axios from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const AddTicketForm = ({ isBlock, event }) => {
   const [ticketCount, setTicketCount] = useState(1);
-
+  
+  const navigate = useNavigate();
   const handleIncrement = () => {
     setTicketCount(ticketCount + 1);
   };
@@ -49,9 +51,13 @@ const AddTicketForm = ({ isBlock, event }) => {
     axios
       .post("/bookings/book-event", requestBody)
       .then((response) => {
-        console.log("Response:", response.data);
+        // console.log("Response:", response.data);
+        localStorage.setItem("bookingData",JSON.stringify(response.data));
+        navigate("/downloadticket")
         isBlock(false);
         alert(`your ${ticketCount} tickets has booked`);
+        setResponseData(response.data); // Set response data here
+        
       })
       .catch((error) => {
         console.error("Error:", error.response.data);
@@ -138,10 +144,10 @@ const AddTicketForm = ({ isBlock, event }) => {
           </p>
         </div>
         <button
-          className="w-full py-2 rounded bg-red-500 text-white hover:bg-red-600"
-          onClick={() => handleTicketBooking()}
+          className="w-full py-2  rounded bg-red-500 text-white hover:bg-red-600"
+          onClick={handleTicketBooking} // Moved onClick to Link component
         >
-          Proceed to Pay
+          <span className="block mx-auto text-center">Proceed to Pay</span>
         </button>
       </div>
     </div>

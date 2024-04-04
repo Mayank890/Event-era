@@ -8,6 +8,7 @@ import ForgotPassword from "./_auth/forms/ForgotPassword";
 import SignUp from "./_auth/forms/SignUp";
 import LogIn from "./_auth/forms/LogIn";
 import RootLayout from "./_root/RootLayout";
+import DownloadTicketPage from "./_root/pages/DownloadTicketPage";
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           <Route path="/profile/*" element={<Profile />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/downloadticket" element={<DownloadTicketPage />} />
+
+          
         </Route>
       </Routes>
     </>

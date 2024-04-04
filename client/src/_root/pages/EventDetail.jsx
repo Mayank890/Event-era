@@ -19,7 +19,7 @@ export default function EventDetail() {
       axios
         .get("https://api.theeventera.live/api/events/details/" + id)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setEvent(response.data);
         })
         .catch((err) => console.log(err));
